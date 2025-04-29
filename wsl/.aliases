@@ -1,0 +1,113 @@
+# ~/.aliases
+# Define Colors
+BLACK='\033[0;30m'        # Black
+RED='\033[0;31m'          # Red
+GREEN='\033[0;32m'        # Green
+YELLOW='\033[0;33m'       # Yellow
+BLUE='\033[0;34m'         # Blue
+PURPLE='\033[0;35m'       # Purple
+CYAN='\033[0;36m'         # Cyan
+WHITE='\033[0;37m'        # White
+
+# No Color
+NC='\033[0m'              # Text Reset
+
+# MAKE TERMINAL BETTER
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias testcolors="for bg_color in {0..255}; do for fg_color in {0..255}; do print -P -- \"%K{\$bg_color}%F{\$fg_color}Foreground \$fg_color on Background \$bg_color%f%k\"; done; done"
+alias ps='ps auxf'
+
+alias apt-get='sudo apt-get'
+
+
+# Aliases using the chosen ls implementation
+alias lstype='type chosen_ls'
+alias ls='chosen_ls'
+alias l='ls_long'                  # Long listing
+alias la='ls_all'                  # Show all including hidden
+alias lf="ls_files_only"           # Files only (exa does not work)
+alias lk='ls_sort_size'            # Sort by size
+alias ll='ls_long_all'             # Long listing with hidden files
+alias lm='ll | less -R'            # Pipe through more
+alias lr='ll -R'                   # Recursivde listing
+alias lrm='ll -R | less -R'        # Recursive listing via less
+alias lt='ls_sort_time'            # Sort by date
+alias lw='ls_wide_all'             # Wide listing format
+alias ldir="ls_dirs_only"          # Directories only
+
+
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias ~="cd ~"                              # ~: Go Home
+alias c='clear'                             # c: Clear terminal display
+alias cl='clear; ll'
+alias cls='clear'
+alias which='type -all'                     # which: Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
+
+# alias editapt='sudo nano /etc/apt/apt.conf; cl'
+# alias editddc='sudo nano /etc/ddclient.conf; cl'
+# alias editlist='sudo nano /etc/apt/sources.list; cl'
+# alias editlogin='sudo nano /etc/gdm*/daemon.conf; cl'
+# alias editnet='sudo nano /etc/network/interfaces; cl'
+# alias editssh='sudo nano /etc/ssh/sshd_config; cl'
+alias edit='nano'                           # edit: Opens any file in nano editor
+alias editbrc='nano ~/.bashrc; cl'
+alias editcron='sudo nano /etc/crontab; cl'
+alias edithosts='sudo nano /etc/hosts; cl'
+alias editnano='sudo nano /etc/nanorc; cl'
+alias editsudo='sudo nano /etc/sudoers; cl'
+alias editalias='nano ~/.aliases; cl'
+alias editbashalias='nano ~/.bash_aliases; cl'
+alias editbashfunc='nano ~/.bash_functions; cl'
+alias editprofile='nano ~/.zprofile; cl'
+alias editsh='nano ~/.zshrc; cl'
+alias editba='editbashalias'
+alias editbf='editbashfunc'
+
+alias gclone='git clone'
+
+alias reloadsh='exec $SHELL -l'
+# alias bat='batcat'
+# alias cat='bat'
+alias nf='neofetch'
+# alias kill='fkill'
+
+# SEARCHING
+alias qfind="find . -name "                 # qfind: Quickly search for file
+
+# NETWORKING
+alias netCons='lsof -i'                             # netCons: Show all open TCP/IP sockets
+
+alias untar="tar -xvzf"
+alias dgzip="gzip -d"
+
+alias da='date "+%Y-%m-%d %A %T %Z"'
+
+# Alias's for archives
+alias mktar='tar -cvf'
+alias mkbz2='tar -cvjf'
+alias mkgz='tar -cvzf'
+alias untar='tar -xvf'
+alias unbz2='tar -xvjf'
+alias ungz='tar -xvzf'
+
+# Show all logs in /var/log
+alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+
+## Git commands
+alias gp='git pull'
+alias gf='git fetch'
+alias gfp='git fetch; git pull'
+alias gs='git status'
+
+
+# docker/podman
+alias docker="podman"
+
+# php
+alias switchphp="sudo update-alternatives --config php;php -v"
